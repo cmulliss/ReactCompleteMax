@@ -1,17 +1,22 @@
+import React, { useState } from 'react'
+
 import ExpenseDate from './ExpenseDate'
 import './ExpenseItem.css'
 import Card from './Card'
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
+  const [title, setTitle] = useState(props.title)
+
   const clickHandler = () => {
-    console.log('Clicked')
+    setTitle('Updated')
+    console.log(title)
   }
 
   return (
     <Card className='expense-item'>
       <ExpenseDate date={props.date} />
       <div className='expense-item__description'>
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <div className='expense-item__price'>£{props.amount}</div>
       </div>
       <button onClick={clickHandler}>Change Title</button>
@@ -21,11 +26,11 @@ function ExpenseItem(props) {
 
 export default ExpenseItem
 
-// can add fn to button on the fly, as an anonymous fn, easy to add event listener, but adds a lot of code to jsx block
-{
+/* can add fn to button on the fly, as an anonymous fn, easy to add event listener, but adds a lot of code to jsx block
+
   /* <button
         onClick={() => {
           console.log('Clicked')
         }}
-      > */
-}
+      > 
+*/
