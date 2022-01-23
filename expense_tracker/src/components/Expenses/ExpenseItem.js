@@ -5,8 +5,10 @@ import './ExpenseItem.css'
 import Card from './Card'
 
 const ExpenseItem = (props) => {
+  // register state with = useState(porps.title)
+  // then get back 2 values, the value itself, title, and the updating fn setTitle in this case
   const [title, setTitle] = useState(props.title)
-
+  // call the updating fn, setTitle, whenever the state should change, and use to output in jsx
   const clickHandler = () => {
     setTitle('Updated')
     console.log(title)
